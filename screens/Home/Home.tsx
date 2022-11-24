@@ -1,8 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View ,Button } from 'react-native'
 import React , {useState, useEffect} from 'react'
 import Posts from '../../componentes/posts/Posts'
+import AppName from '../AppName/AppName'
 
-export default function Home() {
+export default function Home({navigation}:any) {
+  console.log(navigation)
   const [posts,setPosts] = useState<any>([])
 
   /* Mock Data */
@@ -19,16 +21,20 @@ export default function Home() {
 
 
   return (
+    <>
+<AppName newStyles={{fontFamily:'Pacifico-Regular'}}/>
     <View style={styles.container}>
+
 
 
 
         {posts &&
         <Posts posts={posts} />
-        }
+      }
       
       
     </View>
+      </>
   )
 }
 
