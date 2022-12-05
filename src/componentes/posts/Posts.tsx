@@ -1,6 +1,7 @@
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import Item from './Item/Item'
+import { GlobalStyles } from '../../Constantes/Styles'
 
 interface Post{
     img:string
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
         marginBottom:'40%'
     },
     color:{
-        color:'white',
+        color:GlobalStyles.color,
         fontSize:50
     }
 })

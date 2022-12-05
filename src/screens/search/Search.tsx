@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { GlobalStyles } from '../../Constantes/Styles'
 
-export default function Upload() {
+export default function Search() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Subir contenido</Text>
+      <Text style={styles.text}>Buscar Contenido</Text>
     </View>
   )
 }
@@ -15,11 +16,11 @@ const styles = StyleSheet.create({
     height:'100%',
     alignItems:'center',
     justifyContent:'center',
-    backgroundColor:'rgb(51,51,51)',
+    backgroundColor:GlobalStyles.BgColor,
     paddingBottom:'20%'
   },
   text:{
-    color:'white',
+    color:GlobalStyles.color,
     fontSize:30
   }
 })

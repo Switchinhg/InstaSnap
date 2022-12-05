@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View ,Image,Dimensions } from 'react-native'
 import React from 'react'
 import { useFonts } from 'expo-font';
+import { GlobalStyles } from '../../../Constantes/Styles';
 
 
 const windowWidth = Dimensions.get('window').width;
@@ -9,7 +10,7 @@ export default function Item({post}:any) {
     const text = {fontFamily:'AnticSlab-Regular'}
 
     const [fontsLoaded] = useFonts({
-        'AnticSlab-Regular': require('../../../assets/Fonts/AnticSlab-Regular.ttf')
+        'AnticSlab-Regular': require('../../../../assets/Fonts/AnticSlab-Regular.ttf')
     })
 
     if(!fontsLoaded){
@@ -26,7 +27,8 @@ return (
 
 const styles = StyleSheet.create({
     post:{
-        backgroundColor:'rgba(27,27,27,0.3)',
+        
+        backgroundColor:GlobalStyles.Bg2,
         borderRadius: 8,
 
         paddingBottom:10,
@@ -36,7 +38,7 @@ const styles = StyleSheet.create({
     },
     user:{
         paddingLeft:10,
-        color:'white',
+        color:GlobalStyles.color,
         fontSize:50
     },
     postImg:{
@@ -48,6 +50,6 @@ const styles = StyleSheet.create({
     description:{
         paddingLeft:10,
         fontSize:20,
-        color:'white'
+        color:GlobalStyles.color
     }
 })

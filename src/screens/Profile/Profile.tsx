@@ -1,7 +1,9 @@
-import { StyleSheet, Text, View,  Image, Button } from 'react-native'
+import { StyleSheet, Text, View,  Image, Button, Pressable } from 'react-native'
 import React from 'react'
 import Settings from '../settings/Settings';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import MyStack from '../../testStack/Tests';
+import { GlobalStyles } from '../../Constantes/Styles';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,7 +25,11 @@ export default function Profile({navigation}:any) {
           <Text style={styles.text}>Swicho</Text>
           
 
-          <Button title="*" onPress={() => navigation.navigate("Settings")} />
+          <Pressable  onPress={() => navigation.navigate("Configuración")}>
+            <Text style={styles.settings} >*</Text>
+          </Pressable>
+          {/* <Button title="*" onPress={() => navigation.navigate("Configuracion")} /> */}
+          {/* <MyStack/> */}
 {/* style={{...styles.text2, paddingLeft:20,fontSize:40}} */}
           </View>
           <Text style={styles.text2}>14 Posts</Text>
@@ -41,17 +47,16 @@ const styles = StyleSheet.create({
   container:{
     flex:1,
     height:'100%',
-    backgroundColor:'rgb(51,51,51)',
+    backgroundColor:GlobalStyles.BgColor,
     paddingBottom:'20%',
     alignItems:'center',
-    paddingTop:40,
   },
   text:{
-    color:'white',
+    color:GlobalStyles.color,
     fontSize:35
   },
   text2:{
-    color:'white',
+    color:GlobalStyles.color,
     fontSize:17
   },
   imageContainer:{
@@ -68,5 +73,12 @@ const styles = StyleSheet.create({
   },
   userPart:{
     flexDirection:'row'
+  },
+  settings:{
+    color:'rgb(74,161,247)',
+    fontSize:40,
+    marginLeft:10,
+    paddingLeft:5,
+    paddingRight:20
   }
 })

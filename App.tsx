@@ -1,18 +1,18 @@
-import { StyleSheet, View , Text} from 'react-native';
+import { StyleSheet, View , Text, Settings} from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons'
-import Home from './screens/Home/Home';
-import Navegacion from './screens/navegacion/Navegacion';
-import Profile from './screens/Profile/Profile';
+
 import { useFonts } from 'expo-font';
-import AppName from './screens/AppName/AppName';
 import {useState} from 'react'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Search from './screens/search/Search';
-import Upload from './screens/upload/Upload';
-import Settings from './screens/settings/Settings';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Home from './src/screens/Home/Home';
+import Profile from './src/screens/Profile/Profile';
+import AppName from './src/screens/AppName/AppName';
+import Search from './src/screens/search/Search';
+import Upload from './src/screens/upload/Upload';
+import ProfileStack from './src/screens/Profile/ProfileStack';
 
 
 /* pacifico nombre de la app */
@@ -70,7 +70,7 @@ const Stack = createNativeStackNavigator();
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Search" component={Search} />
         <Tab.Screen name="Upload" component={Upload} />
-        <Tab.Screen name="Profile" component={Profile} />
+        <Tab.Screen name="Profile" component={ProfileStack} />
       </Tab.Navigator>
     </NavigationContainer>
 

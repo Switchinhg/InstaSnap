@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View ,Button } from 'react-native'
 import React , {useState, useEffect} from 'react'
-import Posts from '../../componentes/posts/Posts'
 import AppName from '../AppName/AppName'
+import Posts from '../../componentes/posts/Posts'
+import { GlobalStyles } from '../../Constantes/Styles'
 
 export default function Home({navigation}:any) {
   console.log(navigation)
@@ -41,8 +42,8 @@ export default function Home({navigation}:any) {
 const styles = StyleSheet.create({
   container:{
     paddingTop:5,
-    height:'93%',
-    backgroundColor:'rgb(51,51,51)'
+    height:'100%',
+    backgroundColor: GlobalStyles.BgColor
   },
 
 })
