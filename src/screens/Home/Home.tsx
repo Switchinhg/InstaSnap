@@ -3,20 +3,25 @@ import React , {useState, useEffect} from 'react'
 import AppName from '../AppName/AppName'
 import Posts from '../../componentes/posts/Posts'
 import { GlobalStyles } from '../../Constantes/Styles'
+import {postsImport} from '../../Constantes/USER'
+/* Redux */
+import {useSelector, useDispatch, connect} from 'react-redux'
+/* /Redux */
 
-export default function Home({navigation}:any) {
-  console.log(navigation)
+export default function Home() {
+
+  const PostsRedux = useSelector((state:any)=>state.posts.posts)
+
   const [posts,setPosts] = useState<any>([])
 
-  /* Mock Data */
-  const prods= [{img:'https://picsum.photos/200/300',acc:'swicho',desc:'foto sacada ayer'},{img:'https://picsum.photos/200/300',acc:'swicho',desc:'foto sacada ayer'},{img:'https://picsum.photos/200/300',acc:'swicho',desc:'foto sacada ayer'},{img:'https://picsum.photos/200/300',acc:'swicho',desc:'foto sacada ayer'},{img:'https://picsum.photos/200/300',acc:'swicho',desc:'foto sacada ayer'},{img:'https://picsum.photos/200/300',acc:'swicho',desc:'foto sacada ayer'},{img:'https://picsum.photos/200/300',acc:'swicho',desc:'foto sacada ayer'},{img:'https://picsum.photos/200/300',acc:'swicho',desc:'foto sacada ayer'},{img:'https://picsum.photos/200/300',acc:'swicho',desc:'foto sacada ayer'},{img:'https://picsum.photos/200/300',acc:'swicho',desc:'foto sacada ayer'},{img:'https://picsum.photos/200/300',acc:'swicho',desc:'foto sacada ayer'},{img:'https://picsum.photos/200/300',acc:'swicho',desc:'foto sacada ayer'},{img:'https://picsum.photos/200/300',acc:'swicho',desc:'foto sacada ayer'},{img:'https://picsum.photos/200/300',acc:'swicho',desc:'foto sacada ayer'},{img:'https://picsum.photos/200/300',acc:'swicho',desc:'foto sacada ayer'},]
+
   
   useEffect(() => {
     /* pido data a supabase */
 
     /* Then */
-      setPosts(prods)
- }, [])
+      setPosts(PostsRedux)
+  }, [])
   
 
 
@@ -28,7 +33,7 @@ export default function Home({navigation}:any) {
 
 
 
-
+    {/* Cambiar a posts de todos */}
         {posts &&
         <Posts posts={posts} />
       }

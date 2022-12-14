@@ -14,75 +14,58 @@ import Search from './src/screens/search/Search';
 import Upload from './src/screens/upload/Upload';
 import ProfileStack from './src/screens/Profile/ProfileStack';
 
+/* Redux */
+  import { Provider } from 'react-redux';
+  import store from './src/store';
+/* /Redux */
 
 /* pacifico nombre de la app */
 /* Antic_Slab textos */
 export default function App() {
   const Tab = createBottomTabNavigator();
-const Stack = createNativeStackNavigator();
 
-  const [pantalla, setPantalla] = useState(<Home/>)
   const [fontsLoaded] = useFonts({
     'AnticSlab-Regular': require('./assets/Fonts/AnticSlab-Regular.ttf'),
     'Pacifico-Regular': require('./assets/Fonts/Pacifico-Regular.ttf')
   })
 
-  const handelChangePantalla = (nuevaPantalla:any)=>{
-    setPantalla(nuevaPantalla)
-  }
-
 
   if(!fontsLoaded){
     return null
     }
-
-    // function Home() {
-    //   return (
-    //     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    //       <Text>Settings!</Text>
-    //     </View>
-    //   );
-    // }
     
   return (
-    <>
-
-    {/* <AppName newStyles={{fontFamily:'Pacifico-Regular'}}/> */}
-    {/* existe usuario? */}
-    <NavigationContainer >
-      <Tab.Navigator screenOptions={{
-    tabBarLabelPosition: "beside-icon",
-    tabBarLabelStyle: {
-      fontWeight: "700",
-      fontSize: 15,
-      paddingRight:20
-    },
-    tabBarActiveTintColor: "rgb(96,181,59)",
-    tabBarInactiveTintColor: 'white',
-    tabBarIconStyle: { display: "none" },
-    tabBarStyle:{
-      backgroundColor:'rgba(0, 0, 0, 0.8)',
-      borderTopColor: 'transparent'
-    },
-    headerShown:false,
-    
-  }}>
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Search" component={Search} />
-        <Tab.Screen name="Upload" component={Upload} />
-        <Tab.Screen name="Profile" component={ProfileStack} />
-      </Tab.Navigator>
-    </NavigationContainer>
-
-    {/* {pantalla} */}
-
-
+    <Provider store={store}>
+      {/* existe usuario? */}
+      <NavigationContainer >
+        <Tab.Navigator screenOptions={{
+      tabBarLabelPosition: "beside-icon",
+      tabBarLabelStyle: {
+        fontWeight: "700",
+        fontSize: 15,
+        paddingRight:20
+      },
+      tabBarActiveTintColor: "rgb(96,181,59)",
+      tabBarInactiveTintColor: 'white',
+      tabBarIconStyle: { display: "none" },
+      tabBarStyle:{
+        backgroundColor:'rgba(0, 0, 0, 0.8)',
+        borderTopColor: 'transparent'
+      },
+      headerShown:false,
       
-    {/* No existe usuario */}
-          {/* Login / Register */}
-    {/*  */}
-      {/* <Navegacion changePage={handelChangePantalla}/>   */}
-    </>
+      }}>
+          <Tab.Screen name="Home" component={Home} />
+          <Tab.Screen name="Search" component={Search} />
+          <Tab.Screen name="Upload" component={Upload} />
+          <Tab.Screen name="Profile" component={ProfileStack} />
+        </Tab.Navigator>
+      </NavigationContainer>
+        
+      {/* No existe usuario */}
+            {/* Login / Register */}
+      {/*  */}
+    </Provider>
   );
 }
 
