@@ -1,12 +1,20 @@
 import {userImports} from '../../Constantes/USER'
+import { SET_ACTIVE } from '../actions/user.action'
 
 const InitialState = {
-    users: userImports,
-    usuarioLogeado: userImports.filter(e=> e.usuario === 'Swicho')
+    user: userImports,
+    usuarioLogeado: ''
     /* Quizas tenga que poner Usuario Logeado */
 }
 
 const UserReducer = (state=InitialState ,action:any)=>{
-    return state
+    switch (action.type){
+        case SET_ACTIVE:
+            // postsImport.unshift(action.post)
+    }
+    return{
+        ...state,
+        usuarioLogeado:action.user
+    }
 }
 export default UserReducer

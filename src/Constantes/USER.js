@@ -21,8 +21,8 @@ export const postsImport=
 
 /* Mock Users */
 export const userImports=[
-    {id:1,usuario:"Swicho",posts:14,seguidores:57,siguiendo:60},
-    {id:2,usuario:"Cynthia",posts:7,seguidores:120,siguiendo:70},
-    {id:3,usuario:"Balki",posts:70,seguidores:505,siguiendo:204},
-    {id:4,usuario:"Gokirito",posts:2,seguidores:17,siguiendo:20},
+    // {id:1,usuario:"Swicho",posts:14,seguidores:57,siguiendo:60},
+    // {id:2,usuario:"Cynthia",posts:7,seguidores:120,siguiendo:70},
+    // {id:3,usuario:"Balki",posts:70,seguidores:505,siguiendo:204},
+    // {id:4,usuario:"Gokirito",posts:2,seguidores:17,siguiendo:20},
 ]

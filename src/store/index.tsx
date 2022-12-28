@@ -1,4 +1,5 @@
-import {createStore , combineReducers} from 'redux'
+import {createStore , combineReducers, applyMiddleware} from 'redux'
+// import thunk from 'redux-thunk' 
 
 /* Reducers */
 import PostsReducer from './reducers/posts.reducer'
@@ -8,4 +9,4 @@ const RootReducer = combineReducers({
     users:UserReducer,
     posts:PostsReducer,
 })
-export default createStore(RootReducer)
+export default createStore(RootReducer/* , applyMiddleware(thunk) */)
