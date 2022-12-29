@@ -12,7 +12,7 @@ export default function Home() {
 
   const PostsRedux = useSelector((state:any)=>state.posts.posts)
 
-  const [posts,setPosts] = useState<any>([])
+  // const [posts,setPosts] = useState<any>([])
 
 
   
@@ -20,7 +20,7 @@ export default function Home() {
     /* pido data a supabase */
 
     /* Then */
-      setPosts(PostsRedux)
+      // setPosts(PostsRedux)
   }, [])
   
 
@@ -33,9 +33,8 @@ export default function Home() {
 
 
 
-    {/* Cambiar a posts de todos */}
-        {posts &&
-        <Posts posts={posts} />
+      {/* Cambiar a posts de todos */}
+        {<Posts posts={PostsRedux} />
       }
       
       

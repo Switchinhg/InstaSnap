@@ -6,33 +6,30 @@ import { GlobalStyles } from '../../Constantes/Styles';
 
 /* Redux */
 import {useSelector, useDispatch, connect} from 'react-redux'
-import Posts from '../../componentes/posts/Posts';
+import Posts from '../../componentes/posts/PostsProfile';
 /* /Redux */
 
-const Stack = createNativeStackNavigator();
-
-
-
-/* tener usuario activo */
 export default function Profile({navigation}:any) {
+
+
   const [Logged, setUsuarioLogeado] = useState<any>()
-  const [PostsLogeado, setPostsLogeado] = useState<any>()
-  const usuarioLogeadu = useSelector((state:any)=>state.users.usuarioLogeado)
-  const PostsUsuarios = useSelector((state:any)=>state.posts.posts)
-  const postUsuario = PostsUsuarios.filter((e:any)=>e.acc !== usuarioLogeadu[0].usuario )
-
-  useEffect(() => {
-    setUsuarioLogeado(usuarioLogeadu[0])
-    setPostsLogeado(postUsuario)
-  }, [])
   
-  console.log("Logged")
-  console.log(Logged)
-  console.log("PostsLogeado")
-  console.log(PostsLogeado)
+  
+  const PostsUsuarios = useSelector((state:any)=>state.posts.posts)
 
-  if(!Logged)
-  return <></>
+  
+  
+
+  if(!Logged){
+    console.log('entre en !logged')
+    const usuarioLogeadu = useSelector((state:any)=>state.users.state.usuarioLogeado)
+    setUsuarioLogeado(usuarioLogeadu)
+    return <></>
+  }
+
+  const PostsLogeadisimo = PostsUsuarios.filter((e:any)=>e.acc === Logged.usuario )
+
+
 
   return (
     <View style={styles.container}>
@@ -61,7 +58,7 @@ export default function Profile({navigation}:any) {
       </View>
 
       <View style={styles.testWrap}>
-        <Posts posts={PostsLogeado} />
+        <Posts posts={PostsLogeadisimo} />
 
       </View>
     </View>
