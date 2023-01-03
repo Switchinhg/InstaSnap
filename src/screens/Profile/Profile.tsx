@@ -27,7 +27,7 @@ export default function Profile({navigation}:any) {
     return <></>
   }
 
-  const PostsLogeadisimo = PostsUsuarios.filter((e:any)=>e.acc === Logged.usuario )
+  // const PostsLogeadisimo = PostsUsuarios.filter((e:any)=>e.acc === Logged.usuario )
 
 
 
@@ -57,10 +57,9 @@ export default function Profile({navigation}:any) {
         </View>
       </View>
 
-      <View style={styles.testWrap}>
-        <Posts posts={PostsLogeadisimo} />
-
-      </View>
+      {/* <View style={styles.testWrap}> */}
+        {/* <Posts posts={PostsLogeadisimo} /> */}
+      {/* </View> */}
     </View>
   )
 }
